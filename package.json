@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "gdax": "*",
+    "node.bittrex.api": "^0.2.5",
+    "ws": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "superagent": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha tests"
+  }
+}
