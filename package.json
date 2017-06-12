@@ -2,7 +2,8 @@
   "dependencies": {
     "gdax": "*",
     "node.bittrex.api": "^0.2.5",
-    "ws": "^3.0.0"
+    "ws": "^3.0.0",
+    "request": "*"
   },
   "devDependencies": {
     "chai": "*",
