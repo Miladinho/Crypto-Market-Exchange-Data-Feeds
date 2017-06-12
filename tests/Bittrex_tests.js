@@ -22,7 +22,7 @@ describe('Bittrex module', function() {
 				}
 			});
 		});
-		it('should pass a list of size 200 on succefull api call to callback', function(done) {
+		it('should pass a list of size 200 on succesfull api call to callback', function(done) {
 			Bittrex.getTrades('USDT-BTC', function(err, result) {
 				if (err) done(err);
 				else {
