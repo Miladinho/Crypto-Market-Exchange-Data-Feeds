@@ -13,3 +13,18 @@ This API consists of three modules, each named after one of the exchanges suppor
 A note on currencies
 Bittrex and Poloniex use USDT (Tether USD) which for trading purposes is essentially the same as USD. Coinbase however uses strait USD as they are an accredited exchange that is setup to send and recieve money between banks. For simplicity we will pass in USDT into the CoinBase module currencyString as well so that the user does not need to do too much research on how each individual exchange's API works. Again, each exchange has different trade configurations which you should be familiar with so if one currencyString to getTrades causes the callback function to return an error then you know that the entered configuration is not supported by that exchange.
 
+# getTrades(currencyString,function(err,result){}) callback result block
+
+The callback function passed to getTrades will recieve and array of objects in the result given that the currencyString parameter is correct for the given exchange module. The format of each object in the result array is as follows:
+
+{
+	TimeStamp : "time stamp",
+	TradeId : "some id local to the exchange db",
+	OrderType : "buy/sell"
+	Price : "some value",
+	Quantity : "some value",
+	OriginalDataObject : {
+		block of data returned by actual exchange api
+	}
+}
+
