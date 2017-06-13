@@ -16,12 +16,25 @@ function currencyStringTransformer(currency) {
 	}
 }
 
+function formatJSONResponseBody(body) {
+	return body.map(function(data) {
+		return {
+			TimeStamp : data.time,
+			TradeId : data.trade_id,
+			OrderType : data.side,
+			Price : data.price,
+			Quantity : data.size,
+			OriginalDataObject : data
+		}
+	});
+}
+
 exports.getTrades = function(currency,callback) {
 	var client = new Gdax.PublicClient(currencyStringTransformer(currency));
 	client.getProductTrades({'before': 10}, function(err, response, data) {
 		if (data.message === 'NotFound') callback(new Error('API call failed.'),null);
 		else {
-			callback(null,JSON.parse(response.body));
+			callback(null,formatJSONResponseBody(JSON.parse(response.body)));
 			//console.log(JSON.parse(response.body)[0]);
 		}
 	});

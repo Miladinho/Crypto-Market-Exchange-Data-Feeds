@@ -19,9 +19,17 @@ describe('Poloniex module', function() {
 			done();
 		});
 	});
-	// it('should return objects of unform keys', function(done) {
-	// 	Poloniex.getTrades('USDT-BTC', function(err, result) {
-
-	// 	});
-	// });
+	it('should return objects of uniform keys', function(done) {
+		Poloniex.getTrades('USDT-BTC', function(err, result) {
+			result.forEach(function(item) {
+				var keys = Object.keys(item);
+				Chai.assert(keys[0] === 'TimeStamp');
+				Chai.assert(keys[1] === 'TradeId');
+				Chai.assert(keys[2] === 'OrderType');
+				Chai.assert(keys[3] === 'Price');
+				Chai.assert(keys[4] === 'Quantity')
+			});
+			done();
+		});
+	});
 });
