@@ -9,7 +9,7 @@ describe('Bittrex module', function() {
 		});
 		it('should pass error to callback on bad currency input', function(done) {
 			Bittrex.getTrades('',function(err, result) {
-				Chai.assert(err === true);
+				Chai.assert(err != null);
 				done();
 			});
 		});

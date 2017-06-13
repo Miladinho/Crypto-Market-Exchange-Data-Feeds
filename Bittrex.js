@@ -47,9 +47,10 @@ function parseTrades(data,callback) {
 exports.getTrades = function(currency,callback) {
 	bittrex.getmarkethistory({market: currency}, function(data) {
 		if (data.success === false) {
-			callback(true,null);
+			callback(new Error('API call failed.'),null);
 		} else {
-			callback(false,data.result);
+			callback(null,data.result);
+			//console.log(data.result[0]);
 		}
 	});
 }

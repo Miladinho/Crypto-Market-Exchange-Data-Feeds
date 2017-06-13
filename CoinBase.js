@@ -18,15 +18,14 @@ function currencyStringTransformer(currency) {
 
 exports.getTrades = function(currency,callback) {
 	var client = new Gdax.PublicClient(currencyStringTransformer(currency));
-	client.getProductTrades({'before': 100}, function(err, response, data) {
-		//console.log(data.message);
-		if (data.message === 'NotFound') callback(true,null);
-		else callback(false,JSON.parse(response.body));
+	client.getProductTrades({'before': 10}, function(err, response, data) {
+		if (data.message === 'NotFound') callback(new Error('API call failed.'),null);
+		else {
+			callback(null,JSON.parse(response.body));
+			//console.log(JSON.parse(response.body)[0]);
+		}
 	});
 }
 
-// var client = new Gdax.PublicClient('BTC-USD');
-// client.getProductTrades({'before': 200}, function(err, result) {
-// 	console.log(JSON.parse(result.body));
-// });
+
 

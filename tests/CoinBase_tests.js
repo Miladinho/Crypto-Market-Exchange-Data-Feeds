@@ -7,8 +7,8 @@ describe('CoinBase module', function() {
 			Chai.expect(CoinBase.getTrades).is.a('function');
 		});
 		it('should pass error to callback on bad currency input', function(done) {
-			CoinBase.getTrades('p', function(err, result) {
-				Chai.assert(err === true);
+			CoinBase.getTrades('bad', function(err, result) {
+				Chai.assert(err != null);
 				done();
 			});
 		});

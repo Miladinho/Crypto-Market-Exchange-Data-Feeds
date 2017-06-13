@@ -15,20 +15,11 @@ function currencyStringTransformer(currency) {
 exports.getTrades = function(currency,callback) {
 	var url = 'https://poloniex.com';
 	var path = '/public?command=returnTradeHistory&currencyPair='+currencyStringTransformer(currency);
-	var ops = {
-		url: url,
-		port: 80,
-		path: path,
-		method: 'GET',
-		headers: {
-            "content-type": "application/json",
-            "accept": "application/json"
-        },
-	};
 	request(url+path, function(err, res, body) {
-		if (typeof JSON.parse(body).error !== 'undefined') callback(true,null);
+		if (typeof JSON.parse(body).error !== 'undefined') callback(new Error('API call failed.'),null);
 		else {
-			callback(false,JSON.parse(body));
+			callback(null,JSON.parse(body));
+			//console.log(JSON.parse(body)[0]);
 		}
 	});
 }

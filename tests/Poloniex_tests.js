@@ -9,7 +9,7 @@ describe('Poloniex module', function() {
 	});
 	it('should pass error to callback on bad currency input', function(done) {
 		Poloniex.getTrades('bad',function(err, result) {
-			Chai.assert(err === true);
+			Chai.assert(err != null);
 			done();
 		});
 	});
@@ -19,5 +19,9 @@ describe('Poloniex module', function() {
 			done();
 		});
 	});
-	
+	// it('should return objects of unform keys', function(done) {
+	// 	Poloniex.getTrades('USDT-BTC', function(err, result) {
+
+	// 	});
+	// });
 });
