@@ -1,5 +1,5 @@
 var exports = module.exports = {};
-exports.Poloniex = require('./Poloniex');
-exports.Bittrex = require('./Bittrex');
-exports.CoinBase = require('./CoinBase');
+exports.Poloniex = require('./lib/Poloniex');
+exports.Bittrex = require('./lib/Bittrex');
+exports.CoinBase = require('./lib/CoinBase');
 
