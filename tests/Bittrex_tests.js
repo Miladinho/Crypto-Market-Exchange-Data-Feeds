@@ -1,5 +1,5 @@
 var Chai = require('chai');
-const Bittrex = require('../Bittrex');
+const Bittrex = require('../lib/Bittrex');
 
 describe('Bittrex module', function() {
 	describe('getTrades', function() {
@@ -35,11 +35,12 @@ describe('Bittrex module', function() {
 			Bittrex.getTrades('USDT-BTC', function(err, result) {
 				result.forEach(function(item) {
 					var keys = Object.keys(item);
-					Chai.assert(keys[0] === 'TimeStamp');
-					Chai.assert(keys[1] === 'TradeId');
-					Chai.assert(keys[2] === 'OrderType');
-					Chai.assert(keys[3] === 'Price');
-					Chai.assert(keys[4] === 'Quantity')
+					Chai.assert(keys[0] === 'Exchange');
+					Chai.assert(keys[1] === 'TimeStamp');
+					Chai.assert(keys[2] === 'TradeId');
+					Chai.assert(keys[3] === 'OrderType');
+					Chai.assert(keys[4] === 'Price');
+					Chai.assert(keys[5] === 'Quantity')
 				});
 				done();
 			});

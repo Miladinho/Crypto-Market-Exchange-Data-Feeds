@@ -1,5 +1,5 @@
 var Chai = require('chai');
-var Poloniex = require('../Poloniex');
+var Poloniex = require('../lib/Poloniex');
 
 describe('Poloniex module', function() {
 	describe('getTrades', function() {
@@ -23,11 +23,12 @@ describe('Poloniex module', function() {
 		Poloniex.getTrades('USDT-BTC', function(err, result) {
 			result.forEach(function(item) {
 				var keys = Object.keys(item);
-				Chai.assert(keys[0] === 'TimeStamp');
-				Chai.assert(keys[1] === 'TradeId');
-				Chai.assert(keys[2] === 'OrderType');
-				Chai.assert(keys[3] === 'Price');
-				Chai.assert(keys[4] === 'Quantity')
+				Chai.assert(keys[0] === 'Exchange');
+				Chai.assert(keys[1] === 'TimeStamp');
+				Chai.assert(keys[2] === 'TradeId');
+				Chai.assert(keys[3] === 'OrderType');
+				Chai.assert(keys[4] === 'Price');
+				Chai.assert(keys[5] === 'Quantity')
 			});
 			done();
 		});
