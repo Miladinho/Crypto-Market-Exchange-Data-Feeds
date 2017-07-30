@@ -1,4 +1,5 @@
 var Chai = require('chai');
+Chai.use(require("chai-sorted"));
 const Bittrex = require('../lib/Bittrex');
 
 describe('Bittrex module', function() {
@@ -44,6 +45,12 @@ describe('Bittrex module', function() {
 				});
 				done();
 			});
+		});
+		it('should return an object array sorted in descending order by TradeId key', function(done) {
+			Bittrex.getTrades('USDT-BTC', function(err, result) {
+				Chai.expect(result).to.be.sortedBy("TradeId", true);
+				done();
+			})
 		});
 	});
 });
