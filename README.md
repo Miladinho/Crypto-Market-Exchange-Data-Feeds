@@ -17,7 +17,8 @@ Bittrex and Poloniex use USDT (Tether USD) which for trading purposes is essenti
 
 The callback is implemented to conform to the Javascript Callback Pattern. The callback function passed to getTrades will recieve and array of Objects in the _result_ parameter given that the _currencyString_ parameter is correct for the given exchange module. The format of each Object in the result array is as follows:
 
-```{
+```
+{
 	TimeStamp : "time stamp",
 	TradeId : "some id local to the exchange db",
 	OrderType : "buy/sell"
@@ -26,5 +27,6 @@ The callback is implemented to conform to the Javascript Callback Pattern. The c
 	OriginalDataObject : {
 		block of data returned by actual exchange api
 	}
-}```
+}
+```
 
