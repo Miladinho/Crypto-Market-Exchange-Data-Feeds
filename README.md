@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/{Miladinho}/{Crypto-Market-Exchange-Data-Feeds}.png?branch=master)](https://travis-ci.org/{Miladinho}/{Crypto-Market-Exchange-Data-Feeds
+})
+
 # Purpose
 A wrapper around the major crypto currency API endpoints for current (live) and past trade transaction data. This guide assumes the reader is familiar with each exchange and with currrency or alt-currency ticker values (BTC = bitcoin for example).
 
