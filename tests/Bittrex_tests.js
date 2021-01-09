@@ -6,11 +6,12 @@ var Helpers = require('../tests/Helpers');
 describe('Bittrex module', function() {
 	describe('getTrades', function() {
 		Helpers.generalGetTradesFunctionTests(Bittrex);
-		it('should pass a list of size 200 on succesfull api call to callback', function(done) {
+		it('should pass a list of size 100 on succesfull api call to callback', function(done) {
 			Bittrex.getTrades('USDT-BTC', function(err, result) {
-				if (err) done(err);
+				if (err) 
+					done(err);
 				else {
-					Chai.assert(result.length === 200);
+					Chai.assert(result.length === 100);
 					done();
 				}
 			})
