@@ -1,1 +1,3 @@
-language: node
+language: nodes_js
+nodes_js:
+  - node
