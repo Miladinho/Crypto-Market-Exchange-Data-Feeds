@@ -7,6 +7,7 @@
   },
   "devDependencies": {
     "chai": "*",
+    "chai-sorted": "^0.2.0",
     "mocha": "*",
     "superagent": "*"
   },
