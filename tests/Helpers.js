@@ -6,7 +6,7 @@ exports.generalGetTradesFunctionTests = function(module) {
 		Note: USDT-BTC is the currency string used in these tests because nearlly all exchanges will support this.
 	*/
 	describe('Callback pattern tests', function() {
-		it('should pass error object to callback on bad currency input and null as reuslt block', function(done) {
+		it('should pass error object to callback on bad currency input and null as result block', function(done) {
 			module.getTrades('',function(err, result) {
 				Chai.assert(err !== null);
 				Chai.assert(result === null);
@@ -29,7 +29,6 @@ exports.generalGetTradesFunctionTests = function(module) {
 		module.getTrades('USDT-BTC', function(err, result) {
 			if (err) {
 				done(err);
-				return;
 			}
 			result.forEach(function(item) {
 				var keys = Object.keys(item);
